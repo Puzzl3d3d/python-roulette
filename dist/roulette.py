@@ -187,7 +187,7 @@ def calculate_money(bets, winning_slot):
     )
 
     for bet_choice, bet_amount in bets.items():
-        if bet_choice == winning_slot:
+        if bet_choice.strip() == winning_slot.replace(GREEN,"").replace(BLACK,"").replace(RED,"").replace(RESET,"").strip():
             # Winning on an exact number match
             money += bet_amount + (bet_amount * 35)
             print(f"BET {bet_choice.upper()} | Success! ${(bet_amount * 35):.2f} gained!")

@@ -72,6 +72,7 @@ def place_bets(money):
         clear_screen()
     return bets, money
 def spin_roulette():
+    global marker_index
     print("Spinning the roulette wheel...")
     delay = 0.03  # Initial delay between each frame
     marker_index = len(slots) // 2  # Start the marker in the middle
@@ -118,7 +119,7 @@ def calculate_money(bets, winning_slot):
     )
 
     for bet_choice, bet_amount in bets.items():
-        if bet_choice == winning_slot:
+        if bet_choice.strip() == winning_slot.replace(GREEN,"").replace(BLACK,"").replace(RED,"").replace(RESET,"").strip():
             # Winning on an exact number match
             money += bet_amount + (bet_amount * 35)
             print(f"BET {bet_choice.upper()} | Success! ${(bet_amount * 35):.2f} gained!")
