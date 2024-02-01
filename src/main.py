@@ -5,6 +5,7 @@ import sys
 
 import leaderboard
 
+username, auth = leaderboard.get_user()
 cooldown = 60
 
 # Define the roulette slots with ANSI color codes
